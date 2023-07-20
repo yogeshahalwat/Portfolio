@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}      
+          <div class="container px-4 py-5" id="featured-3">
+              <h2 class="pb-2 border-bottom">There are {{data.count}} blog{{data.count|pluralize:'s'}}</h2>
+              
+              <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+                  {% for item in data %}  
+                  <div class="feature col">
+                      <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                          <img src="{% static 'portfolio/python.png' %}" alt="no img found" class="rounded float-center" width="30" length="30">   
+                        </div>
+                        <h3 class="fs-2 text-body-emphasis">{{item.title}}</h3>
+                        <p>{{item.desc|truncatechars:299}}</p>
+                        <a href="{% url 'blog:detail' item.pk %}" class="icon-link">
+                            More
+                        </a>
+                    </div>
+                    
+                    {% endfor %}
+                </div>
+          </div>
+
+        
+{% endblock content %}

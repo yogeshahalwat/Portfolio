@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="py-5 text-center container"">
+
+    {% for item in data %}
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <p class="lead text-body-secondary">{{item.memo}}</p>
+        </div>
+      </div>
+    <img src="{% static 'portfolio/yogesh.jpeg' %}" alt="no img found" class="rounded float-center">  
+     
+
+    
+{% endfor %}
+</div>
+
+
+
+{% endblock content %}
+
+
+
